@@ -2,35 +2,63 @@ import React, { useState } from "react";
 import Sidebar from "./components/sidebar";
 import TopBar from "./components/topbar";
 
-// Page Components
+// Page Components representing the MatAlign Workflow Steps
 import DashboardPage from "./components/Pages/DashboardPage";
+import ApiDataConnectionPage from "./components/Pages/ApiDataConnectionPage";
 import AllMaterialsPage from "./components/Pages/AllMaterialsPage";
-import StandardMaterialsPage from "./components/Pages/StandardMaterialsPage";
 import CategoriesPage from "./components/Pages/CategoriesPage";
 import RunMatchingPage from "./components/Pages/RunMatchingPage";
-import ApiDataConnectionPage from "./components/Pages/ApiDataConnectionPage";
+import MatchResultsPage from "./components/Pages/MatchResultsPage";
+// import ConflictsPage from "./components/Pages/ConflictsPage";
+import ReviewPage from "./components/Pages/ReviewPage";
+import StandardMaterialsPage from "./components/Pages/StandardMaterialsPage";
+import CpseMappingPage from "./components/Pages/CpseMappingPage";
+import AnalyticsPage from "./components/Pages/AnalyticsPage";
 
 export default function App() {
-  const [activePage, setActivePage] = useState("standard-materials");
+  // Set default active tab to 'match-results'
+  const [activePage, setActivePage] = useState("Dashboard");
 
-  // Page Routing Logic
+  // Router for MatAlign Architecture Pages
   const renderPage = () => {
     switch (activePage) {
       case "dashboard":
         return <DashboardPage />;
+
       case "all-materials":
         return <AllMaterialsPage />;
-      case "standard-materials":
-        return <StandardMaterialsPage />;
+
       case "categories":
         return <CategoriesPage />;
+
       case "run-matching":
         return <RunMatchingPage />;
-      case "api-integration":
-      case "api-data-connection":
-        return <ApiDataConnectionPage />;
-      default:
+
+      case "match-results":
+        return <MatchResultsPage />;
+
+      case "conflicts":
+        return <ConflictsPage />;
+
+      case "review":
+      case "review-queue":
+        return <ReviewPage />;
+
+      case "standard-materials":
         return <StandardMaterialsPage />;
+
+      case "cpse-mapping":
+        return <CpseMappingPage />;
+
+      case "analytics":
+      case "dashboard":
+        return <AnalyticsPage />;
+
+        case "api-data-connection":
+        return <ApiDataConnectionPage />;
+
+      default:
+        return <DashboardPage />;
     }
   };
 
