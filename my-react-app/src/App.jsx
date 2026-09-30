@@ -4,6 +4,7 @@ import TopBar from "./components/topbar";
 import DashboardPage from "./components/Pages/DashboardPage";
 import AllMaterialsPage from "./components/Pages/AllMaterialsPage";
 import RunMatchingPage from "./components/Pages/RunMatchingPage";
+import ApiDataConnectionPage from "./components/Pages/ApiDataConnectionPage";
 
 const App = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -16,6 +17,9 @@ const App = () => {
         return <AllMaterialsPage />;
       case "run-matching":
         return <RunMatchingPage />;
+      case "api-integration":
+      case "api-data-connection":
+        return <ApiDataConnectionPage />;
       default:
         return <DashboardPage />;
     }
