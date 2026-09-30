@@ -2,24 +2,21 @@ import React, { useState } from "react";
 import Sidebar from "./components/sidebar";
 import TopBar from "./components/topbar";
 
-// Page Components representing the MatAlign Workflow Steps
 import DashboardPage from "./components/Pages/DashboardPage";
 import ApiDataConnectionPage from "./components/Pages/ApiDataConnectionPage";
 import AllMaterialsPage from "./components/Pages/AllMaterialsPage";
 import CategoriesPage from "./components/Pages/CategoriesPage";
 import RunMatchingPage from "./components/Pages/RunMatchingPage";
 import MatchResultsPage from "./components/Pages/MatchResultsPage";
-// import ConflictsPage from "./components/Pages/ConflictsPage";
+import ConflictsPage from "./components/Pages/ConflictsPage";
 import ReviewPage from "./components/Pages/ReviewPage";
 import StandardMaterialsPage from "./components/Pages/StandardMaterialsPage";
 import CpseMappingPage from "./components/Pages/CpseMappingPage";
 import AnalyticsPage from "./components/Pages/AnalyticsPage";
 
 export default function App() {
-  // Set default active tab to 'match-results'
   const [activePage, setActivePage] = useState("Dashboard");
 
-  // Router for MatAlign Architecture Pages
   const renderPage = () => {
     switch (activePage) {
       case "dashboard":
