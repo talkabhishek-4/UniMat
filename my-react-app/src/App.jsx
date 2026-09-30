@@ -6,6 +6,7 @@ import TopBar from "./components/topbar";
 import DashboardPage from "./components/Pages/DashboardPage";
 import AllMaterialsPage from "./components/Pages/AllMaterialsPage";
 import StandardMaterialsPage from "./components/Pages/StandardMaterialsPage";
+import CategoriesPage from "./components/Pages/CategoriesPage";
 import RunMatchingPage from "./components/Pages/RunMatchingPage";
 import ApiDataConnectionPage from "./components/Pages/ApiDataConnectionPage";
 
@@ -21,6 +22,8 @@ export default function App() {
         return <AllMaterialsPage />;
       case "standard-materials":
         return <StandardMaterialsPage />;
+      case "categories":
+        return <CategoriesPage />;
       case "run-matching":
         return <RunMatchingPage />;
       case "api-integration":
