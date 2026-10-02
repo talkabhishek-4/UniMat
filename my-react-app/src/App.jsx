@@ -15,7 +15,9 @@ import CpseMappingPage from "./components/Pages/CpseMappingPage";
 import AnalyticsPage from "./components/Pages/AnalyticsPage";
 
 export default function App() {
-  const [activePage, setActivePage] = useState("Dashboard");
+  const [activePage, setActivePage] = useState("dashboard");
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const renderPage = () => {
     switch (activePage) {
@@ -48,10 +50,10 @@ export default function App() {
         return <CpseMappingPage />;
 
       case "analytics":
-      case "dashboard":
         return <AnalyticsPage />;
 
-        case "api-data-connection":
+      case "api-data-connection":
+      case "api-connection":
         return <ApiDataConnectionPage />;
 
       default:
@@ -62,12 +64,22 @@ export default function App() {
   return (
     <div className="flex min-h-screen bg-[#F8FAFC] font-sans antialiased text-slate-900 select-none">
       {/* Sidebar Navigation */}
-      <Sidebar activePage={activePage} setActivePage={setActivePage} />
+      <Sidebar 
+        activePage={activePage} 
+        setActivePage={setActivePage}
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+        isMobileOpen={isMobileOpen}
+        setIsMobileOpen={setIsMobileOpen}
+      />
 
       {/* Main App Layout */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
         {/* Header / TopBar */}
-        <TopBar activePage={activePage} />
+        <TopBar 
+          activePage={activePage} 
+          setIsMobileOpen={setIsMobileOpen}
+        />
 
         <main className="flex-1 p-6 md:p-8 overflow-y-auto">
           <div className="max-w-7xl mx-auto">
