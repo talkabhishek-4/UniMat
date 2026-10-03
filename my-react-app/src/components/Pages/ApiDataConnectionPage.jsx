@@ -77,10 +77,6 @@ const ApiDataConnectionPage = () => {
             <RefreshCw className={`w-3.5 h-3.5 text-indigo-600 ${isSyncing ? 'animate-spin' : ''}`} />
             <span>{isSyncing ? 'Syncing Connectors...' : 'Sync All Systems'}</span>
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0F172A] text-white text-xs font-semibold hover:bg-slate-800 transition-all shadow-md active:scale-95 cursor-pointer">
-            <Plus className="w-3.5 h-3.5 text-sky-400" />
-            <span>New Connection</span>
-          </button>
         </div>
       </div>
 
